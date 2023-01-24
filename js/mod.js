@@ -1,8 +1,8 @@
 let modInfo = {
 	name: "Mana Tree",
-	id: "mymod",
+	id: "manamod",
 	author: "Thomas H",
-	pointsName: "points",
+	pointsName: "Mana",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "hkd29#6455",
@@ -13,12 +13,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "1.0",
+	name: "Launch Update!",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
+	<h3>v1.0</h3><br>
 		- Added things.<br>
 		- Added stuff.`
 
@@ -43,6 +43,9 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+
+	if (hasUpgrade('p', 11)) gain = gain.times(2)
+	
 	return gain
 }
 
