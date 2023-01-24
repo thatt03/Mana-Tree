@@ -42,14 +42,14 @@ addLayer("p", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
-        
+
         13: {
-            title: "test",
-            description: "test",
-            cost: new Decimal(3),
+            title: "fix asap",
+            description: "fix asap",
+            cost: new Decimal(2),
             effect() {
                 return player.points.add(1).pow(0.15)
-            },  
+            },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
     }
