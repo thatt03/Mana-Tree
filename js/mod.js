@@ -1,13 +1,13 @@
 let modInfo = {
 	name: "Mana Tree",
 	id: "manamod",
-	author: "Thomas H",
+	author: "hkd29",
 	pointsName: "Mana",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "hkd29#6455",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal (0), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
@@ -42,9 +42,11 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(1)
+	let gain = new Decimal(0.1)
 
-	if (hasUpgrade('p', 11)) gain = gain.times(2)
+	if (hasUpgrade('p', 11)) gain = gain.times(3)
+
+	if (hasUpgrade('p', 12)) gain = gain.times(upgradeEffect('p', 12))
 	
 	return gain
 }
