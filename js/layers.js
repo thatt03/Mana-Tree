@@ -4,7 +4,7 @@ addLayer("p", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-		points: new Decimal(0),
+		points: new Decimal(1),
     }},
     color: "#0096FF",
     requires: new Decimal(1), // Can be a function that takes requirement increases into account
@@ -30,8 +30,11 @@ addLayer("p", {
     upgrades: {
         11: {
             title: "Expansive Research",
-            description: "Triple your Mana gain.",
+            description: "Triple your Mana gain, but knowledge costs more Mana", // Implement
             cost: new Decimal(2),
+            effect() {
+                // Implement
+            },
         },
 
         12: {
@@ -39,7 +42,7 @@ addLayer("p", {
             description: "Increase Mana gain by current knowledge",
             cost: new Decimal(2),
             effect() {
-                return player[this.layer].points.add(1).pow(0.5)
+                return player[this.layer].points.add(1.1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
@@ -47,7 +50,7 @@ addLayer("p", {
         13: {
             title: "Bend Will",
             description: "Knowledge becomes easier to acquire based on current Mana",
-            cost: new Decimal(5),
+            cost: new Decimal(10),
             effect() {
                 return player.points.add(1).pow(0.15)
             },
