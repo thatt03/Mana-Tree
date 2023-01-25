@@ -15,6 +15,7 @@ addLayer("p", {
     exponent: 0.4, // Prestige currency exponent
     gainMult() {
         let mult = new Decimal(1)
+        if (hasUpgrade('p', 11)) mult = mult.times(0.9)
         if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 13))
         return mult
     },
@@ -32,9 +33,6 @@ addLayer("p", {
             title: "Expansive Research",
             description: "Triple your Mana gain, but knowledge costs more Mana", // Implement
             cost: new Decimal(2),
-            effect() {
-                // Implement
-            },
         },
 
         12: {
