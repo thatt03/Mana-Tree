@@ -45,9 +45,9 @@ addLayer("p", {
         },
 
         13: {
-            title: "fix asap",
-            description: "fix asap",
-            cost: new Decimal(2),
+            title: "Bend Will",
+            description: "Knowledge becomes easier to acquire based on current Mana",
+            cost: new Decimal(5),
             effect() {
                 return player.points.add(1).pow(0.15)
             },
